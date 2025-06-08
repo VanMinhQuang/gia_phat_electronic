@@ -1,12 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import HomeScreen from './features/home/screen/home_screen';
+import RootNavigator from './navigations/root_navigator';
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { enableScreens } from 'react-native-screens';
 
 export default function App() {
+  enableScreens(); // Enable native screens for better performance
     return (
-    <NavigationContainer>
-      <HomeScreen />
-    </NavigationContainer>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <RootNavigator />
+        </NavigationContainer>
+      </SafeAreaProvider>
+
   );
 }

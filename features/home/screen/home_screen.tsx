@@ -5,28 +5,35 @@ import ReportScreen from '../../report/main_report/screen/report_screen';
 import SettingScreen from '../../setting/screen/setting_screen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
+import MainAppBar from '../../../components/bar/appbar';
 
 const Tab = createBottomTabNavigator();
 
 export default function HomeScreen() {
   return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        headerShown: false,
-        tabBarIcon: ({ color, size }) => {
-            let iconName: keyof typeof Ionicons.glyphMap;
-
-      if (route.name === 'Dashboard') iconName = 'home';
-      else if (route.name === 'Report') iconName = 'document-text';
-      else  iconName = 'settings';
-
-      return <Ionicons name={iconName} size={size} color={color} />;
-        },
-      })}
-    >
-      <Tab.Screen name="Dashboard" component={DashboardScreen} />
-      <Tab.Screen name="Report" component={ReportScreen} />
-      <Tab.Screen name="Setting" component={SettingScreen} />
-    </Tab.Navigator>
+    <View style={{ flex: 1 }}>
+      <MainAppBar />
+      <View style={{ flex: 1 }}>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            headerShown: false,
+            tabBarIcon: ({ color, size }) => {
+              let iconName: keyof typeof Ionicons.glyphMap;
+              if (route.name === 'Dashboard') iconName = 'home';
+              else if (route.name === 'Report') iconName = 'document-text';
+              else iconName = 'settings';
+              return <Ionicons name={iconName} size={size} color={color} />;
+            },
+            tabBarActiveBackgroundColor: 'white',
+             tabBarInactiveBackgroundColor: 'white',
+             
+          })}
+        >
+          <Tab.Screen name="Dashboard" component={DashboardScreen} />
+          <Tab.Screen name="Report" component={ReportScreen} />
+          <Tab.Screen name="Setting" component={SettingScreen} />
+        </Tab.Navigator>
+      </View>
+    </View>
   );
 }
