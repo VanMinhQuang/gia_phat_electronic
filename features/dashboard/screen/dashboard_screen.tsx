@@ -1,10 +1,24 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+
+import DashboardOrder from '../components/dashboard_recent_order';
+import { ScrollView } from 'react-native'; 
+import DashboardRevenue from '../components/dashboard_revenue';
+import DashboardChart from '../components/dashboard_chart';
+import { Card } from 'react-native-paper';
+
+
 
 export default function DashboardScreen() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Dashboard Screen</Text>
-    </View>
+    <ScrollView>
+      
+        <DashboardChart/>
+        <DashboardRevenue/>
+      
+      
+      <DashboardOrder/>
+    </ScrollView>
+    
   );
 }
+
