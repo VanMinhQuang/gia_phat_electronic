@@ -1,6 +1,5 @@
-import React from "react";
+
 import { View, Text, StyleSheet, Dimensions } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
 import Carousel from "react-native-reanimated-carousel";
 import { useSharedValue } from "react-native-reanimated";
 

@@ -1,6 +1,4 @@
 import { View, Text, StyleSheet, Dimensions } from "react-native";
-import DashboardRevenue from "./dashboard_revenue";
-import { Card } from "react-native-paper";
 const screenWidth = Dimensions.get('window').width;
 
 
