@@ -10,13 +10,10 @@ import { Card } from 'react-native-paper';
 
 export default function DashboardScreen() {
   return (
-    <ScrollView>
-      
-        <DashboardChart/>
+    <ScrollView> 
         <DashboardRevenue/>
-      
-      
-      <DashboardOrder/>
+        <DashboardChart/>
+        <DashboardOrder/>
     </ScrollView>
     
   );

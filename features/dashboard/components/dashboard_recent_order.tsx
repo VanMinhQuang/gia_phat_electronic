@@ -13,7 +13,7 @@ var orders = [
         ];
 
 const DashboardOrder = () => (
-  <Card style={styles.container}>
+  <View style={styles.container}>
     <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#333' }}>Recent Orders</Text>
     {orders.map(item => (
       <View key={item.id} style={styles.orderItem}>
@@ -28,13 +28,27 @@ const DashboardOrder = () => (
         </View>
       </View>
     ))}
-  </Card>
+  </View>
 );
 
 export default DashboardOrder;
 
 const styles = StyleSheet.create({
- container: { flex: 1, padding: 20 },
+ container: { 
+    flex: 1, 
+    marginTop: 20,
+    padding: 20, 
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    // Optional: add shadow for card effect
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    elevation: 3,
+  },
  orderItem: {
     flexDirection: 'row',
     alignItems: 'center',
