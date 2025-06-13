@@ -5,7 +5,7 @@ import ReportScreen from '../../report/main_report/screen/report_screen';
 import SettingScreen from '../../setting/screen/setting_screen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import MainAppBar from '../../../components/bar/appbar';
+import MainAppBar from '../components/home_appbar';
 
 const Tab = createBottomTabNavigator();
 

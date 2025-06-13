@@ -2,9 +2,8 @@ import {useState, useEffect} from 'react';
 import { chartMock } from '../../data/model/dashboard/dashboard.mock';
 import { Chart } from '../../data/model/dashboard/dashboard.model';
 
-// Simulate API call for changing year
 export async function changeYearMock(yearOffSet: number) {
-  // You can customize this to return different data per yearOffSet if needed
+ 
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(chartMock);
