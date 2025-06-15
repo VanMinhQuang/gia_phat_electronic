@@ -12,6 +12,7 @@ const Colors = {
   success: '#388e3c',
   warning: '#fbc02d',
   white: '#ffffff',
+  translucent: 'rgba(255, 255, 255, 0.8)',
 };
 
 export default Colors;

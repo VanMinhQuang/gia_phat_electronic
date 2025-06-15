@@ -7,7 +7,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../navigations/root_navigator';
 
 const MainAppBar = () => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigator = useNavigation<StackNavigationProp<RootStackParamList>>();
       return (
       <Appbar.Header style={styles.header}>
         <Appbar.Action icon="account" color={Colors.white}  onPress={() => console.log('User pressed')} />
@@ -18,7 +18,7 @@ const MainAppBar = () => {
           style={{ alignItems: 'center' }}
         />
         <Appbar.Action icon="magnify" color={Colors.white}  onPress={() => console.log('Search pressed')} />
-        <Appbar.Action icon="cart" color={Colors.white}  onPress={() => navigation.navigate('CartScreen')} />
+        <Appbar.Action icon="cart" color={Colors.white}  onPress={() => navigator.navigate('CartScreen')} />
       </Appbar.Header>
     );
 }
