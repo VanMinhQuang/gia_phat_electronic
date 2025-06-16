@@ -9,6 +9,7 @@ const ProductListSearchBar = () => {
       placeholder="Search"
       onChangeText={setSearchQuery}
       value={searchQuery}
+      style={{ margin: 16, borderRadius: 20 }}
     />
   );
 };

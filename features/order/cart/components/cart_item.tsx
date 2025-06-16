@@ -21,7 +21,7 @@ const CartItemView = (item: CartBrand) => (
                   <View style={styles.productCard} key={product.id}>
                     <CachedImage
                       imageUrl={product.image}
-                      styles={styles.productImage}     
+                      style={styles.productImage}     
                       contentFit={"cover"}
                       transition={1000}                 
                       />

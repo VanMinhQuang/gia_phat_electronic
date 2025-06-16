@@ -6,7 +6,7 @@ import { enableScreens } from 'react-native-screens';
 export default function App() {
   enableScreens(); // Enable native screens for better performance
     return (
-      <SafeAreaProvider>
+      <SafeAreaProvider style={{ flex: 1 }}>
         <NavigationContainer>
           <RootNavigator />
         </NavigationContainer>

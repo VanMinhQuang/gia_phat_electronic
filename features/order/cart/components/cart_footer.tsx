@@ -1,21 +1,26 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Colors from "../../../../constant/colors/Color";
 
-const CartFooter = () => (
-       <View style={styles.footer}>
+type Props = { onPress: () => void };
+const CartFooter = ({ onPress }: Props) => {
+    return (
+
+        <View style={styles.footer}>
             <View>
               <Text style={styles.amountLabel}>Amount Price</Text>
               <Text style={styles.amount}>$ 55.08</Text>
             </View>
-            <TouchableOpacity style={styles.checkoutButton}>
+            <TouchableOpacity style={styles.checkoutButton} onPress={onPress}>
               <Text style={styles.checkoutText}>Check Out</Text>
               <View style={styles.checkoutBadge}>
                 <Text style={styles.checkoutBadgeText}>4</Text>
               </View>
             </TouchableOpacity>
           </View>
-);
 
+
+);
+}
 const styles = StyleSheet.create({
  footer: {
     position: 'absolute',
@@ -24,12 +29,15 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: 16,
+    paddingBottom: 40,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
     elevation: 10,
+    height: 100
+    
   },
   amountLabel: {
     color: '#999',

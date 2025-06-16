@@ -1,23 +1,24 @@
-import { useNavigation } from "@react-navigation/native";
-import { View, StyleSheet } from "react-native";
-import { Button } from "react-native-paper";
-import ProductListAppbar from "../components/product_list_appbar";
-import ProductListSearchBar from "../components/product_list_searchbar";
-
+import { View, StyleSheet, SafeAreaView } from "react-native";
+import { ProductCategory, ProductList, ProductListAppbar, ProductListSearchBar } from "../components/product_export";
+import { productData } from '../../../../../data/model/product/product.mock';
+import { ScrollView } from "react-native-gesture-handler";
 
 const ProductListScreen = () => {
-    const navigator = useNavigation();
     return (
-    
-    <View style={styles.screen}>
-        <ProductListAppbar/>
-        <ProductListSearchBar />
-     </View>   
-)
+        <SafeAreaView style={styles.container}>
+            <ProductListAppbar />
+            <ProductCategory />
+            <ProductListSearchBar />
+            <ProductList products={productData} />
+        </SafeAreaView>
+    );
 };
 
 const styles = StyleSheet.create({
-    screen:{flex: 1}
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    }
 });
 
 export default ProductListScreen;

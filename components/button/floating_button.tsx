@@ -1,67 +1,65 @@
 import React, { useRef } from 'react';
-import {
-  StyleSheet,
-  Animated,
-  PanResponder,
-  TouchableOpacity,
-  Text,
-} from 'react-native';
+import { Animated, PanResponder, StyleSheet } from 'react-native';
+import { FAB } from 'react-native-paper';
+import { opacity } from 'react-native-reanimated/lib/typescript/Colors';
+import Colors from '../../constant/colors/Color';
 
-const DraggableFloatingButton = () => {
-  // Set initial position (x: 300, y: 600)
-  const pan = useRef(new Animated.ValueXY({ x: 300, y: 600 })).current;
+type Props = { onPress: () => void };
+
+export default function FloatingButton({ onPress }: Props) {
+  const pos = useRef(new Animated.ValueXY({ x: 300, y: 600 })).current;
+  const startPos = useRef({ x: 0, y: 0 });
 
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
-        // Use getLayout().left/top for current position
-        pan.extractOffset();
+      onStartShouldSetPanResponderCapture: () => true,
+      onMoveShouldSetPanResponderCapture: () => true,
+
+      onPanResponderGrant: (_, gestureState) => {
+        startPos.current = { x: gestureState.x0, y: gestureState.y0 };
+        pos.extractOffset();
       },
+
       onPanResponderMove: Animated.event(
-        [null, { dx: pan.x, dy: pan.y }],
+        [null, { dx: pos.x, dy: pos.y }],
         { useNativeDriver: false }
       ),
-      onPanResponderRelease: () => {
-        pan.flattenOffset();
+
+      onPanResponderRelease: (_, gestureState) => {
+        pos.flattenOffset();
+
+        // 🔍 Detect if this was a "tap" (not a drag)
+        const dx = Math.abs(gestureState.moveX - startPos.current.x);
+        const dy = Math.abs(gestureState.moveY - startPos.current.y);
+        const TAP_THRESHOLD = 10;
+
+        if (dx < TAP_THRESHOLD && dy < TAP_THRESHOLD) {
+          onPress(); // manually trigger FAB press
+        }
       },
     })
   ).current;
 
   return (
     <Animated.View
-      style={[styles.buttonContainer, pan.getLayout()]}
+      style={[styles.container, pos.getLayout()]}
       {...panResponder.panHandlers}
     >
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => console.log('Button pressed!')}
-        activeOpacity={0.7}
-      >
-        <Text style={styles.buttonText}>+</Text>
-      </TouchableOpacity>
+      <FAB icon="plus" style={styles.button}/>
     </Animated.View>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  buttonContainer: {
+  container: {
     position: 'absolute',
-    zIndex: 100,
+    zIndex: 999,
+   
   },
-  button: {
-    backgroundColor: '#ff6347',
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 8,
-  },
-  buttonText: {
-    fontSize: 30,
-    color: '#fff',
-  },
+  button:{
+    opacity: 0.5,
+    backgroundColor: Colors.primary,
+    elevation: 4
+  }
 });
-
-export default DraggableFloatingButton;

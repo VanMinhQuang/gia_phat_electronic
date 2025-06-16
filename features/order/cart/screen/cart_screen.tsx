@@ -4,13 +4,11 @@ import CartAppBar from '../components/cart_appbar';
 import CartList from '../components/cart_list';
 import CartFooter from '../components/cart_footer';
 import Colors from '../../../../constant/colors/Color';
-import FAB from 'react-native-animated-fab';
 import { cartData } from '../../../../data/model/cart/cart_mock';
 import { useNavigation } from '@react-navigation/native';
-
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../../navigations/root_navigator';
-
+import FloatingButton from '../../../../components/button/floating_button';
 
 
 
@@ -18,19 +16,10 @@ const CartScreen = () => {
   const navigator = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <View style={styles.screen}>
-        <CartAppBar/>
+      <CartAppBar/>
       <CartList cartBrands={cartData}/>
-      <CartFooter />  
-      <FAB
-        renderSize={60}
-        borderRadius={30}
-        style={styles.fab}
-
-        backgroundColor={Colors.primary}
-        onPress={() => navigator.navigate('ProductListScreen')}
-        draggable
-
-      />
+      <CartFooter onPress={() => {navigator.navigate('ConfirmOrderScreen')}}/>   
+      <FloatingButton onPress={() => {navigator.navigate('ProductListScreen')}}/>
     </View>
   );
 };
@@ -49,12 +38,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  fab: {
+     fab: {
     position: 'absolute',
-    bottom: 20,
-    right: 20,
-
-    elevation: 5,
+    margin: 16,
+    marginBottom: 100,
+    right: 0,
+    bottom: 0,
+    borderRadius: 32
   },
  
  
