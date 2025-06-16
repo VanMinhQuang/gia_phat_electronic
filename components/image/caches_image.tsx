@@ -1,9 +1,10 @@
 import {Image, ImageContentFit} from 'expo-image';
 import React, { useState } from 'react';
+import { StyleProp, ImageStyle } from 'react-native';
 
 type ImageListProps = {
   imageUrl: string;
-  styles: any;
+  styles: StyleProp<ImageStyle>;
   transition: number;
   contentFit: ImageContentFit;
 };
