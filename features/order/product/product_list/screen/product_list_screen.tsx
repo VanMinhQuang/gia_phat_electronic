@@ -1,21 +1,23 @@
 import { useNavigation } from "@react-navigation/native";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
+import ProductListAppbar from "../components/product_list_appbar";
+import ProductListSearchBar from "../components/product_list_searchbar";
 
 
 const ProductListScreen = () => {
     const navigator = useNavigation();
     return (
     
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <View style={{ width: '100%', height: '100%' }}>
-            <Button
-                mode="contained"
-                onPress={() => navigator.goBack()}
-                style={{ margin: 20 }} children={'hihi'}                />
-        </View>
+    <View style={styles.screen}>
+        <ProductListAppbar/>
+        <ProductListSearchBar />
      </View>   
 )
 };
+
+const styles = StyleSheet.create({
+    screen:{flex: 1}
+});
 
 export default ProductListScreen;

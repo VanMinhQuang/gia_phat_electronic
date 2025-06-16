@@ -4,6 +4,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { CartBrand } from "../../../../data/model/cart/cart_item";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Colors from "../../../../constant/colors/Color";
+import CachedImage from "../../../../components/image/caches_image";
 
 const CartItemView = (item: CartBrand) => (
     <View style={styles.brandSection}>
@@ -18,12 +19,12 @@ const CartItemView = (item: CartBrand) => (
     
                 {item.items.map((product) => (
                   <View style={styles.productCard} key={product.id}>
-                    <Image
-                        source={{ uri: product.image }}
-                        style={styles.productImage}
-                        contentFit="cover" // Similar to resizeMode
-                        transition={300}    // Optional fade-in
-                        />
+                    <CachedImage
+                      imageUrl={product.image}
+                      styles={styles.productImage}     
+                      contentFit={"cover"}
+                      transition={1000}                 
+                      />
                     <View style={styles.productDetails}>
                       <Text style={styles.productName}>{product.name}</Text>
                       <Text style={styles.productDesc}>{product.description}</Text>

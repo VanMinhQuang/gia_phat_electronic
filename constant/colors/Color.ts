@@ -1,4 +1,3 @@
-import { white } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 
 const Colors = {
   primary: '#1976d2',
