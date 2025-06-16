@@ -1,5 +1,5 @@
 import {Image, ImageContentFit} from 'expo-image';
-import React from 'react';
+import React, { useState } from 'react';
 
 type ImageListProps = {
   imageUrl: string;
@@ -10,14 +10,24 @@ type ImageListProps = {
 
 
 const CachedImage : React.FC<ImageListProps> = ({imageUrl, styles, contentFit, transition}) => {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <Image
-      source={{ uri: imageUrl }}
+      source={
+        imgError
+          ? require('../../../../assets/images/placeholder.png')
+          : { uri: imageUrl}
+      }
       style={styles}
       contentFit= {contentFit}
       transition={transition}
       cachePolicy="memory-disk"
       placeholder={require('../../../../assets/images/placeholder.png')}
+      onError={(error) => {
+        console.error("Image loading error:", error);
+        setImgError(true);
+      }}
     />
   );
 }
