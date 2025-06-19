@@ -9,18 +9,19 @@ import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../../navigations/root_navigator';
 import FloatingButton from '../../../../components/button/floating_button';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 
 const CartScreen = () => {
   const navigator = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}edges={['bottom']}>
       <CartAppBar/>
       <CartList cartBrands={cartData}/>
       <CartFooter onPress={() => {navigator.navigate('ConfirmOrderScreen')}}/>   
       <FloatingButton onPress={() => {navigator.navigate('ProductListScreen')}}/>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -1,30 +1,37 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import ConfirmOrderAppBar from "../components/confirm_order_appbar";
 import ConfirmOrderBottom from "../components/confirm_order_bottom_button";
-import { Image } from "expo-image";
+
+import ConfirmOrderListItem from "../components/confirm_order_list_item";
+import { ScrollView } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { cartData } from './../../../../data/model/cart/cart_mock';
+import ConfirmOrderPaymentMethod from "../components/confirm_order_payment_method";
 
 const ConfirmOrderScreen = () => {
-    const bank = '970422';
-    const bankNumber = '0001004448704';
-    const amount = '100000'
+
+    const amount = 150000
     return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen} edges={['bottom']}>
         <ConfirmOrderAppBar/>
-        <Image
-           source={{
-             uri: `https://img.vietqr.io/image/${bank}-${bankNumber}-compact2.jpg?amount=${amount}`,
-            }}
-            style={{ width: 300, height: 300 }} // Add size to see the image
-            contentFit="contain"
-        />
+        <ScrollView contentContainerStyle = {styles.scrollview}>
+            <ConfirmOrderListItem cartBrands={cartData}/>
+            <ConfirmOrderPaymentMethod amount={amount}/>
+        </ScrollView>
+
+   
         <ConfirmOrderBottom onPress={() => {}}/>
-    </View>
+    </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     screen: {
-        flex: 1
+        flex: 1,
+        flexDirection: 'column'
+    },
+    scrollview:{
+        paddingBottom: 100
     }
 });
 
