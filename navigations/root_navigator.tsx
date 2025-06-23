@@ -8,6 +8,7 @@
   import CartScreen from '../features/order/cart/screen/cart_screen';
   import ProductListScreen from '../features/order/product/product_list/screen/product_list_screen';
   import ConfirmOrderScreen from '../features/order/confirm_order/screen/confirm_order_screen';
+import ResultOrderScreen from '../features/order/confirm_order/screen/result_order_screen';
 
   export type RootStackParamList = {
     HomeScreen: undefined;
@@ -17,6 +18,7 @@
     CartScreen: undefined;
     ProductListScreen: undefined;
     ConfirmOrderScreen: undefined;
+    ResultOrderScreen: undefined;
   };
 
   const Stack = createStackNavigator<RootStackParamList>();
@@ -36,6 +38,7 @@
         <Stack.Screen name="CartScreen" component={CartScreen} />
         <Stack.Screen name="ProductListScreen" component={ProductListScreen} />
         <Stack.Screen name="ConfirmOrderScreen" component={ConfirmOrderScreen}/>
+        <Stack.Screen name="ResultOrderScreen" component={ResultOrderScreen}/>
       </Stack.Navigator>
     );
   }

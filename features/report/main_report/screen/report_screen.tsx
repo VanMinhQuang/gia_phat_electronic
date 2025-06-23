@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import Colors from '../../../../constant/colors/Color';
+import {Colors} from '../../../../constant/colors/Color';
 import { Icon, TouchableRipple } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';

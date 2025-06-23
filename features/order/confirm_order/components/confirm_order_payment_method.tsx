@@ -12,16 +12,7 @@ const ConfirmOrderPaymentMethod : React.FC<ConfirmPaymentProp> = ({amount}) => {
     const [selectedMethod,setSelectedMethod] = useState("cash");
     return (
     <View>
-          {/* Payment Options */}
-      <TouchableOpacity
-        style={[
-          styles.option,
-          selectedMethod === "bank" && styles.selectedOption,
-        ]}
-        onPress={() => setSelectedMethod("bank")}
-      >
-        <Text style={styles.optionText}>Thanh toán qua ngân hàng</Text>
-      </TouchableOpacity>
+
 
       <TouchableOpacity
         style={[
@@ -31,6 +22,16 @@ const ConfirmOrderPaymentMethod : React.FC<ConfirmPaymentProp> = ({amount}) => {
         onPress={() => setSelectedMethod("cash")}
       >
         <Text style={styles.optionText}>Thanh toán bằng tiền mặt</Text>
+      </TouchableOpacity>
+
+            <TouchableOpacity
+        style={[
+          styles.option,
+          selectedMethod === "bank" && styles.selectedOption,
+        ]}
+        onPress={() => setSelectedMethod("bank")}
+      >
+        <Text style={styles.optionText}>Thanh toán qua ngân hàng</Text>
       </TouchableOpacity>
 
       {selectedMethod === "bank" && (

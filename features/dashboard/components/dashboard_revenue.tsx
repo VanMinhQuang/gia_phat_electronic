@@ -78,6 +78,7 @@ carousel: {
   padding: 20,
 },
 card: {
+  elevation: 4,
   backgroundColor: '#fff',
   borderRadius: 16,
   padding: 16,

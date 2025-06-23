@@ -3,25 +3,33 @@ import { View, StyleSheet, Alert,} from 'react-native';
 import CartAppBar from '../components/cart_appbar';
 import CartList from '../components/cart_list';
 import CartFooter from '../components/cart_footer';
-import Colors from '../../../../constant/colors/Color';
 import { cartData } from '../../../../data/model/cart/cart_mock';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../../navigations/root_navigator';
 import FloatingButton from '../../../../components/button/floating_button';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import {ColorGradient, Colors} from '../../../../constant/colors/Color';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 
 const CartScreen = () => {
   const navigator = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
-    <SafeAreaView style={styles.screen}edges={['bottom']}>
+
+    <LinearGradient style={styles.screen} colors={ColorGradient.primary}>
+    
+      
       <CartAppBar/>
-      <CartList cartBrands={cartData}/>
+      {/* <CartList cartBrands={cartData}/> */}
       <CartFooter onPress={() => {navigator.navigate('ConfirmOrderScreen')}}/>   
       <FloatingButton onPress={() => {navigator.navigate('ProductListScreen')}}/>
-    </SafeAreaView>
+     
+
+
+    </LinearGradient>
+
   );
 };
 

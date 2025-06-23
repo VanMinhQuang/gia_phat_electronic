@@ -41,11 +41,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 16,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    // Optional: add shadow for card effect
-    shadowColor: '#000',
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    elevation: 3,
+    elevation: 10,
   },
  orderItem: {
     flexDirection: 'row',

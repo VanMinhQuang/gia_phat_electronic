@@ -6,12 +6,14 @@ import SettingScreen from '../../setting/screen/setting_screen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import MainAppBar from '../components/home_appbar';
+import {LinearGradient} from 'expo-linear-gradient'
+import { Colors } from '../../../constant/colors/Color';
 
 const Tab = createBottomTabNavigator();
 
 export default function HomeScreen() {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1 , backgroundColor: Colors.white}} >
       <MainAppBar />
       <View style={{ flex: 1 }}>
         <Tab.Navigator
@@ -37,3 +39,5 @@ export default function HomeScreen() {
     </View>
   );
 }
+
+

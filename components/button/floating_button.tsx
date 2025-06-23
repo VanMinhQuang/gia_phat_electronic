@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Animated, PanResponder, StyleSheet } from 'react-native';
 import { FAB } from 'react-native-paper';
 import { opacity } from 'react-native-reanimated/lib/typescript/Colors';
-import Colors from '../../constant/colors/Color';
+import {Colors} from '../../constant/colors/Color';
 
 type Props = { onPress: () => void };
 

@@ -3,7 +3,7 @@ import { Appbar } from "react-native-paper";
 import { TextStyle, ViewStyle } from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from "@react-navigation/native";
-import Colors from "../../../constant/colors/Color";
+import {Colors} from "../../../constant/colors/Color";
 
 type ReportTypeAppbarProps = {
     title: string;

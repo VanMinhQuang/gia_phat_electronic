@@ -12,20 +12,13 @@
             "webRoot": "${workspaceFolder}"
         },
 
-
         {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
-        },
-
-        {
-            "name":"Attach to Hermes application",
-            "cwd": "${workspaceFolder}",
-            "type":"reactnativedirect",
-            "request": "attach"
-        }
+      "name": "Debug JS in Expo App",
+      "program": "${workspaceFolder}/.vscode/.react",
+      "type": "reactnative",
+      "request": "attach",
+      "platform": "android",
+      "sourceMaps": true
+    }
     ]
 }

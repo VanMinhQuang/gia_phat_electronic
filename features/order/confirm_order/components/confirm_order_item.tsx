@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { CartBrand } from "../../../../data/model/cart/cart_item";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Colors from "../../../../constant/colors/Color";
+import {Colors} from "../../../../constant/colors/Color";
 import CachedImage from "../../../../components/image/caches_image";
 
 const ConfirmOrderItem = (item: CartBrand) => (

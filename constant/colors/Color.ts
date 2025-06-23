@@ -1,3 +1,4 @@
+import { ColorValue } from "react-native";
 
 const Colors = {
   primary: '#1976d2',
@@ -14,4 +15,14 @@ const Colors = {
   translucent: 'rgba(255, 255, 255, 0.8)',
 };
 
-export default Colors;
+const ColorGradient: {
+  primary: [ColorValue, ColorValue];
+  accent: [ColorValue, ColorValue];
+  success: [ColorValue, ColorValue];
+} = {
+  primary: ['#ffffff', '#1976d2'],
+  accent: ['#ffb300', '#ffa000'],
+  success: ['#66bb6a', '#388e3c'],
+};
+
+export { Colors, ColorGradient };

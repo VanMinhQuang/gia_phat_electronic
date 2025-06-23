@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import Colors from "../../../../constant/colors/Color";
+import {Colors} from "../../../../constant/colors/Color";
+
 
 type Props = { onPress: () => void };
 const CartFooter = ({ onPress }: Props) => {
@@ -19,7 +20,7 @@ const CartFooter = ({ onPress }: Props) => {
           </View>
 
 
-);
+  );
 }
 const styles = StyleSheet.create({
  footer: {

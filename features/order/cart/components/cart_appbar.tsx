@@ -1,7 +1,6 @@
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { View,StatusBar, TouchableOpacity, StyleSheet, Text } from "react-native";
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from "@react-navigation/native";
 
 

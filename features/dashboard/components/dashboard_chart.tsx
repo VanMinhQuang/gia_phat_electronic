@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BarChart } from 'react-native-gifted-charts';
 import { Dimensions, StyleSheet, View, Text, ActivityIndicator } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Colors from '../../../constant/colors/Color';
+import {Colors} from '../../../constant/colors/Color';
 import { Button } from 'react-native-paper';
 import { useDashboardChartHook } from '../../../hooks/dashboard/dashboard_chart_hook';
 import {Fold} from 'react-native-animated-spinkit'
