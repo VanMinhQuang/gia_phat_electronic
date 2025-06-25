@@ -28,7 +28,10 @@ export default function HomeScreen() {
             },
             tabBarActiveBackgroundColor: 'white',
              tabBarInactiveBackgroundColor: 'white',
-             
+             tabBarStyle: {
+              height: '10%', 
+              paddingBottom: 5
+             }
           })}
         >
           <Tab.Screen name="Dashboard" component={DashboardScreen} />
