@@ -4,21 +4,17 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "Launch Chrome 8081",
-            "request": "launch",
-            "type": "chrome",
-            "url": "http://localhost:8081",
-            "webRoot": "${workspaceFolder}"
+         {
+            "name": "Attach to Hermes application",
+            "request": "attach",
+            "type": "reactnativedirect",
+            "cwd": "${workspaceFolder}"
         },
-
-        {
-      "name": "Debug JS in Expo App",
-      "program": "${workspaceFolder}/.vscode/.react",
-      "type": "reactnative",
+         {
+      "name": "Expo: Debug App",
+      "type": "expo",
       "request": "attach",
-      "platform": "android",
-      "sourceMaps": true
+      "cwd": "${workspaceFolder}"
     }
     ]
 }

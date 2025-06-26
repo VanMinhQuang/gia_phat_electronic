@@ -19,12 +19,16 @@ const CartScreen = () => {
   return (
 
     <LinearGradient style={styles.screen} colors={ColorGradient.primary}>
-    
+      <SafeAreaView style = {styles.screen} edges={[ 'left', 'right', 'bottom']}>
+        <CartAppBar/>
+        <CartList cartBrands={cartData}/>
+        <CartFooter onPress={() => {navigator.navigate('ConfirmOrderScreen')}}/>   
+        <FloatingButton onPress={() => {
+          navigator.navigate('ProductListScreen')}
+          }/>
+      </SafeAreaView>
       
-      <CartAppBar/>
-      {/* <CartList cartBrands={cartData}/> */}
-      <CartFooter onPress={() => {navigator.navigate('ConfirmOrderScreen')}}/>   
-      <FloatingButton onPress={() => {navigator.navigate('ProductListScreen')}}/>
+     
      
 
 
@@ -34,7 +38,7 @@ const CartScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: Colors.background, position: 'relative' },
+  screen: { flex: 1,  position: 'relative' },
   appBar: {
     marginTop: 40,
     padding: 16,

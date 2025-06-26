@@ -9,12 +9,13 @@ type Props = { onPress: () => void };
 export default function FloatingButton({ onPress }: Props) {
   const pos = useRef(new Animated.ValueXY({ x: 300, y: 600 })).current;
   const startPos = useRef({ x: 0, y: 0 });
-
+  const DRAG_THRESHOLD = 4;       // px  – how far a finger must move to count as a drag
   const panResponder = useRef(
     PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
+      onStartShouldSetPanResponder: () => false,
       onStartShouldSetPanResponderCapture: () => true,
-      onMoveShouldSetPanResponderCapture: () => true,
+        onMoveShouldSetPanResponder: (_e, g) =>
+      Math.abs(g.dx) > DRAG_THRESHOLD || Math.abs(g.dy) > DRAG_THRESHOLD,
 
       onPanResponderGrant: (_, gestureState) => {
         startPos.current = { x: gestureState.x0, y: gestureState.y0 };
@@ -26,17 +27,18 @@ export default function FloatingButton({ onPress }: Props) {
         { useNativeDriver: false }
       ),
 
-      onPanResponderRelease: (_, gestureState) => {
-        pos.flattenOffset();
+      onPanResponderRelease: (_, g) => {
+       const travelledSq = g.dx * g.dx + g.dy * g.dy;
 
-        // 🔍 Detect if this was a "tap" (not a drag)
-        const dx = Math.abs(gestureState.moveX - startPos.current.x);
-        const dy = Math.abs(gestureState.moveY - startPos.current.y);
-        const TAP_THRESHOLD = 10;
 
-        if (dx < TAP_THRESHOLD && dy < TAP_THRESHOLD) {
-          onPress(); // manually trigger FAB press
-        }
+
+      pos.flattenOffset(); 
+
+      if (
+        travelledSq < DRAG_THRESHOLD * DRAG_THRESHOLD 
+      ) {
+        onPress?.();
+      }
       },
     })
   ).current;

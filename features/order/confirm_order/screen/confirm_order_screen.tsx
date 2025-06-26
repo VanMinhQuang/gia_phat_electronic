@@ -15,12 +15,13 @@ const ConfirmOrderScreen = () => {
   const amount = 150000;
   const navigator = useNavigation<NavigationProp<RootStackParamList>>();
   return (
+    
     <LinearGradient style={styles.screen} colors={ColorGradient.primary}>
-      <SafeAreaView style={styles.safeArea} edges={[ 'left', 'right']}>
+      <SafeAreaView style={styles.safeArea} edges={[ 'left', 'right', 'bottom']}>
         <ConfirmOrderAppBar />
 
         <ScrollView contentContainerStyle={styles.scrollview}>
-          {/* <ConfirmOrderListItem cartBrands={cartData} /> */}
+          <ConfirmOrderListItem cartBrands={cartData} />
           <ConfirmOrderPaymentMethod amount={amount} />
         </ScrollView>
       </SafeAreaView>

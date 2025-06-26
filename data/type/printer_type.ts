@@ -9,6 +9,7 @@ export interface BluetoothPrinter {
 export interface PrinterSelectionBottomSheetProps {
   onPrinterConnected?: (printer: BluetoothPrinter) => void;
   onPrinterDisconnected?: (printer?: BluetoothPrinter) => void;
+  onPressPrint: () => void;
 }
 
 export interface PrinterSelectionBottomSheetRef {

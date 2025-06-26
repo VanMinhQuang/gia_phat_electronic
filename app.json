@@ -16,7 +16,6 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    
     "ios": {
       "jsEngine": "jsc",
       "supportsTablet": true
@@ -32,6 +31,11 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b0b98140-e7f1-430d-b5d3-96888680c07e"
+      }
     }
   }
 }
