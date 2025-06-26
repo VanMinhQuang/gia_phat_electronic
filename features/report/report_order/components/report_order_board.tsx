@@ -1,4 +1,5 @@
 import { View, StyleSheet, Text } from "react-native";
+import { Colors } from "../../../../constant/colors/Color";
 
 
 
@@ -6,7 +7,12 @@ import { View, StyleSheet, Text } from "react-native";
 const ReportOrderBoard = () => (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>Doanh thu từ 24/12/2024 - 25/12/2024</Text>
-      <Text style={styles.cardValue}>50/100</Text>
+      <Text style={styles.cardValue}>Tổng tiền: 2000000</Text>
+      <View style={styles.cardSub}>
+          <Text style={styles.cardSubValue}>Tổng số đơn hàng:</Text>
+          <Text> 10</Text>
+      </View>
+      
     </View>
 );
 
@@ -18,7 +24,7 @@ const styles = StyleSheet.create({
         padding: 16,
         marginTop: 10,
         width: "85%", 
-        height: "25%", 
+        height: "20%", 
         shadowColor: '#000',
         shadowOpacity: 0.08,
         shadowRadius: 10,
@@ -29,12 +35,22 @@ const styles = StyleSheet.create({
         borderTopColor: '#FFD43B', 
         overflow: 'hidden',
         alignSelf:'center',
-        justifyContent:'center'
+       justifyContent: "space-between",
 
 },
-     cardTitle: { color: '#999', fontSize: 16, textAlign:'center' },
+  cardTitle: { color: Colors.textSecondary, fontSize: 16, textAlign:'center' },
   cardSubtitle: { fontSize: 16, color: '#aaa' },
-  cardValue: { fontSize: 20, fontWeight: 'bold', color: '#333', textAlign:'center', padding: 8 },
+  cardValue: { fontSize: 25, fontWeight: 'bold', color: '#333', textAlign:'center', padding: 8 },
+  cardSub:{
+    flexDirection:"row",
+    justifyContent:'space-between'
+  },
+  cardSubValue: {
+    fontSize: 13,
+    color: Colors.textSecondary,
+    
+    alignSelf: "flex-end", 
+  },
 });
 
 export default ReportOrderBoard;
