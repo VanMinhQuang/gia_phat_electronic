@@ -14,7 +14,7 @@ export async function changeYearMock(yearOffSet: number) {
 export function useDashboardChartHook() {
   const [chartData, setChartData] = useState<Chart[]>([]);
   const [loading, setLoading] = useState(true);
-  const [yearOffset, setYearOffset] = useState(new Date().getFullYear()); // Default to current year
+  const [yearOffset, setYearOffset] = useState(new Date().getFullYear());
 
   useEffect(() => {
     setLoading(true);

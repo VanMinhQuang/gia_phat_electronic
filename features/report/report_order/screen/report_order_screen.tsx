@@ -1,14 +1,19 @@
 import { View, Text, StyleSheet } from "react-native";
 import ReportTypeAppbar from "../../components/report_type_appbar";
+import ReportOrderBoard from "../components/report_order_board";
+import ReportOrderList from "../components/report_order_list";
+import { recentOrderMock } from "../../../../data/model/order/order.mock";
+import { LinearGradient } from "expo-linear-gradient";
+import { ColorGradient } from "../../../../constant/colors/Color";
+
 
 
 const ReportOrder = () => (
-        <View style={styles.screen}>
+        <LinearGradient style={styles.screen} colors={ColorGradient.primary} >
            <ReportTypeAppbar title ="Order Report" />
-            <View style={{ padding: 20, backgroundColor: '#f0f0f0', borderRadius: 10 }}>
-               <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Order Report</Text>
-            </View>
-        </View>    
+            <ReportOrderBoard/>
+            <ReportOrderList orders={recentOrderMock}/>
+        </LinearGradient>    
 );
 
 const styles = StyleSheet.create({
