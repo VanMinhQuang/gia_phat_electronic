@@ -1,8 +1,8 @@
-import RootNavigator from './navigations/root_navigator';
+import RootNavigator from './view/navigations/root_navigator';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { enableScreens } from 'react-native-screens';
-import { Colors } from './constant/colors/Color';
+import { Colors } from './core/constant/colors/Color';
 
 export default function App() {
 
